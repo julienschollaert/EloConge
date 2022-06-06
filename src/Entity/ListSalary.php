@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ListSalaryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ListSalaryRepository::class)]
@@ -42,6 +44,14 @@ class ListSalary
 
     #[ORM\Column(type: 'string', length: 255)]
     private $jobname;
+
+    #[ORM\ManyToMany(targetEntity: ListConge::class, mappedBy: 'idSalary')]
+    private $listConges;
+
+    public function __construct()
+    {
+        $this->listConges = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -165,6 +175,33 @@ class ListSalary
     public function setJobname(string $jobname): self
     {
         $this->jobname = $jobname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ListConge>
+     */
+    public function getListConges(): Collection
+    {
+        return $this->listConges;
+    }
+
+    public function addListConge(ListConge $listConge): self
+    {
+        if (!$this->listConges->contains($listConge)) {
+            $this->listConges[] = $listConge;
+            $listConge->addIdSalary($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListConge(ListConge $listConge): self
+    {
+        if ($this->listConges->removeElement($listConge)) {
+            $listConge->removeIdSalary($this);
+        }
 
         return $this;
     }
