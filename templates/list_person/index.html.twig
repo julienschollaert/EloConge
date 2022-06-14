@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EloCongé | Liste des Salariés
+{% endblock %}
+
+{% block body %}
+	{% include 'layout/header.html.twig' %}
+	{% include 'layout/menu.html.twig' %}
+
+<div class="card-body justify-content: space-between ">
+	<h4>Liste des collaborateurs</h4>
+	<a href="{{path('app_add_person')}}" class="btn btn-sm btn-primary btn-icon-text ">
+		<i class=" icon-lg mdi mdi-account-plus "></i>
+	</a>
+</div>
+
+{# <a href="{{path('app_logout')}}"class="btn btn-primary">Deconnexion</a> #}
+
+
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+	{#  	<th>id</th>
+<th>id_service_id</th>
+	<th>id_compteur_id</th>#}
+	<th>Prénom</th>
+	<th>Nom</th>
+	<th>Congé restant</th>
+	{#<th>telephone</th>
+	<th>adress</th>
+	<th>city</th>
+	<th>country</th>#}
+	<th>Job</th>
+	<th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+{%for row in list%}
+<tr>
+	{#<td>{{row.id}}</td>
+	  <td>{{row.idService}}</td>
+	<td>{{row.idCompteur}}</td>#}
+	<td>{{row.name}}</td>
+	<td>{{row.surname}}</td>
+	<td>{{row.solde}}</td>
+	{#<td>{{row.telephone}}</td>
+	<td>{{row.adress}}</td>
+	<td>{{row.city}}</td>
+	<td>{{row.country}}</td>#}
+	<td>{{row.jobname}}</td>
+
+	<td>
+		<form method="POST"action="{{path('app_detail_person',{'id':row.id})}}">
+
+		<button class="btn btn-sm btn-primary">Détail</button>
+		</form>
+		{#<ahref="{{path('auteur_show',{'id':auteur.id})}}"class="btnbtn-info">show</a>#}
+		{#<ahref="{{path('auteur_edit',{'id':auteur.id})}}"class="btnbtn-success">edit</a>#}
+	</td>
+
+
+</tr>
+
+{%else%}
+	<tr>
+		<td colspan="12">no records found</td>
+	</tr>
+{%endfor%}
+
+</tbody>
+
+</table>
+
+</div></div>
+
+
+{% include 'layout/footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EloCongé | Détail d'un Salariés
+{% endblock %}
+
+{% block body %}
+	<h1>Détail d'un collaborateur</h1>
+	<a href="{{ path('app_list_person') }}" class="btn btn-primary">Retour</a>
+
+	<div>prenom :
+		{{ prenom }}</div>
+	<div>nom :
+		{{ nom }}</div>
+	<div>job :
+		{{ jobname }}</div>
+	<div>solde :
+		{{ solde }}</div>
+
+	<br>
+	<a href="">Saisir une période de congé</a>
+	<a href="">Historique des congés</a>
+
+	<br>
+	<form method="POST" action="{{ path('app_edit_person', {'id': id}) }}">
+		<button class="btn btn-danger">Modifier les informations</button>
+	</form>
+
+	<form method="POST" action="{{ path('app_delete_person', {'id': id}) }}" onsubmit="return confirm('Voulez-vous supprimer le collaborateur ?');">
+		<button class="btn btn-danger">Supprimer le collaborateur</button>
+	</form>
+
+
+{% endblock %}
