@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}EloCongé | Connexion
+
 {% endblock %}
 
 {% block body %}
+	{% include 'layout/header.html.twig' %}
 	<center>
 		<form method="post">
 			{% if error %}
@@ -18,16 +20,57 @@
 				</div>
 			{% endif %}
 
-			<h1 class="h3 mb-3 font-weight-normal">Connexion à EloCongé</h1>
+			<body>
+			<div class="container-scroller">
+				<div class="container-fluid page-body-wrapper full-page-wrapper">
+					<div class="content-wrapper d-flex align-items-center auth px-0">
+						<div class="row w-100 mx-0">
+							<div class="col-lg-4 mx-auto">
+								<div class="auth-form-light text-left py-5 px-4 px-sm-5">
+									<div style="text-align: center;">
+										<div class="brand-logo">
+											<img style="width: auto" src="{{ asset('staradmin2/template/images/logo.png') }}" alt="logo">
+										</div>
+										{#  <h4>Connexion à EloCongé</h4>#}
+
+									</div>
+										<div class="form-group">
+											<input type="text" value="{{ last_username }}" name="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Identifiant" autocomplete="username" required autofocus>
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control form-control-lg"  name="password" id="exampleInputPassword1" placeholder="Mot de Passe" autocomplete="current-password" required>
+										</div>
+										<div style="text-align: center;">
+											<button class="btn btn-lg btn-primary" type="submit">
+												Connexion
+											</button>
+										</div>
+										<input
+												type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- content-wrapper ends -->
+				</div>
+				<!-- page-body-wrapper ends -->
+			</div>
+
+
+			{# <h1 class="h3 mb-3 font-weight-normal">Connexion à EloCongé</h1>
 			<label for="inputUsername">Identifiant :</label>
 			<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
 			<br><br><label for="inputPassword">Mot de passe :</label>
 			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-			<br><br>
+			<br><br> #
 
 			<input
 			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
+			<button class="btn btn-lg btn-primary" type="submit">
+				Connexion
+			</button>
+		</form>#}
 			{#
 																									        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
 																									        See https://symfony.com/doc/current/security/remember_me.html
@@ -39,9 +82,7 @@
 																									        </div>
 																									    #}
 
-			<button class="btn btn-lg btn-primary" type="submit">
-				Connexion
-			</button>
-		</form>
+
 	</center>
+	{% include 'layout/footer.html.twig' %}
 {% endblock %}
