@@ -76,8 +76,6 @@ class ListPersonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $listSalary = $form->getData();
-
-
             $entityManager->persist($listSalary);
             $entityManager->flush();
             return $this->redirectToRoute('app_list_person');
@@ -86,9 +84,6 @@ class ListPersonController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
-
-
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin/delete/{id}', name: 'app_delete_person', methods: ['POST'])]
