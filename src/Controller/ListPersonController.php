@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ListService;
+use App\Repository\ListCongeRepository;
 use App\Repository\ListServiceRepository;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -48,19 +49,8 @@ class ListPersonController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin/detail/{id}', name: 'app_detail_person')]
-    public function detailPerson(ListSalary $listSalary, ListServiceRepository $listServiceRepository): Response
+    public function detailPerson(ListSalary $listSalary, ListCongeRepository $listCongeRepository): Response
     {
-
-        //requete avec jointure
-       /* $entityManager = $em
-            ->getRepository('Relation:ListSalary')
-            ->createQueryBuilder('e')
-            ->join('e.idRelatedEntity', 'r')
-            ->where('r.foo = 1')
-            ->getQuery()
-            ->getResult();*/
-
-
         return $this->render('list_person/detail.html.twig', [
             'id' => $listSalary->getId(),
             'prenom' => $listSalary->getName(),
@@ -72,6 +62,7 @@ class ListPersonController extends AbstractController
             'country' => $listSalary->getCountry(),
             'city' => $listSalary->getCity(),
             'service' => $listSalary->getIdService(),
+            'list' => $listCongeRepository->findBy(['idSalaryFk' => $listSalary->getId()]),
         ]);
     }
 

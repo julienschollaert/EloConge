@@ -24,6 +24,18 @@ class ListConge
     #[ORM\Column(type: 'string', length: 255)]
     private $commentaire;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $status;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $nbjoursdiff;
+
+    #[ORM\Column(type: 'boolean')]
+    private $validation;
+
+    #[ORM\ManyToOne(targetEntity: ListSalary::class, inversedBy: 'listcong')]
+    private $idSalaryFk;
+
 
     public function __construct()
     {
@@ -67,6 +79,54 @@ class ListConge
     public function setCommentaire(string $commentaire): self
     {
         $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getNbjoursdiff(): ?int
+    {
+        return $this->nbjoursdiff;
+    }
+
+    public function setNbjoursdiff(?int $nbjoursdiff): self
+    {
+        $this->nbjoursdiff = $nbjoursdiff;
+
+        return $this;
+    }
+
+    public function isValidation(): ?bool
+    {
+        return $this->validation;
+    }
+
+    public function setValidation(bool $validation): self
+    {
+        $this->validation = $validation;
+
+        return $this;
+    }
+
+    public function getIdSalaryFk(): ?ListSalary
+    {
+        return $this->idSalaryFk;
+    }
+
+    public function setIdSalaryFk(?ListSalary $idSalaryFk): self
+    {
+        $this->idSalaryFk = $idSalaryFk;
 
         return $this;
     }

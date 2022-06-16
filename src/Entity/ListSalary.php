@@ -51,10 +51,14 @@ class ListSalary
     #[ORM\OneToOne(targetEntity: UserController::class, cascade: ['persist', 'remove'])]
     private $idLogin;
 
+    #[ORM\OneToMany(mappedBy: 'idSalaryFk', targetEntity: ListConge::class)]
+    private $listcong;
+
 
     public function __construct()
     {
         $this->listConges = new ArrayCollection();
+        $this->listcong = new ArrayCollection();
     }
 
 
@@ -218,6 +222,36 @@ class ListSalary
     public function setIdLogin(?UserController $idLogin): self
     {
         $this->idLogin = $idLogin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ListConge>
+     */
+    public function getListcong(): Collection
+    {
+        return $this->listcong;
+    }
+
+    public function addListcong(ListConge $listcong): self
+    {
+        if (!$this->listcong->contains($listcong)) {
+            $this->listcong[] = $listcong;
+            $listcong->setIdSalaryFk($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListcong(ListConge $listcong): self
+    {
+        if ($this->listcong->removeElement($listcong)) {
+            // set the owning side to null (unless already changed)
+            if ($listcong->getIdSalaryFk() === $this) {
+                $listcong->setIdSalaryFk(null);
+            }
+        }
 
         return $this;
     }

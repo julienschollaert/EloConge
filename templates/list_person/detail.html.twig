@@ -4,121 +4,152 @@
 {% endblock %}
 
 
-
 {% block body %}
 	{% include 'layout/header.html.twig' %}
 	{% include 'layout/menu.html.twig' %}
 
-{#  id 	id_service_id 	id_compteur_id 	name 	surname 	solde 	telephone 	adress 	city 	country 	jobname 	 #}
-			<h4 class="card-title">Détail du collaborateur : {{ prenom }} {{ nom }}</h4>
-			<form class="form-sample">
-				{#  <div class="row">
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label"><b>Prénom : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-3 col-form-label">{{ prenom }}</label>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Nom : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-3 col-form-label">{{ nom }}</label>
-							</div>
-						</div>
-					</div>
-				</div>#}
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Job : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ jobname }}</label>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Service : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Téléphone : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ telephone }}</label>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Solde : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ solde }}</label>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Adresse : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ adresse }}</label>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Ville : </b></label>
-							<div class="col-sm-9">
-								<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ city }}, {{ country }} </label>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group row" style="margin-bottom: 0px;">
-							<label class="col-sm-3 col-form-label" style="margin-bottom:0px"><b>Ancienneté : </b></label>
-							<div class="col-sm-9">
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</form>
-		</div>
-	</div>
-</div>
-</div>
-
-<div class="main-panel">
-	<div class="content-wrapper">
+	{#  id 	id_service_id 	id_compteur_id 	name 	surname 	solde 	telephone 	adress 	city 	country 	jobname 	 #}
+	<h4 class="card-title">Détail du collaborateur :
+		{{ prenom }}
+		{{ nom }}</h4>
+	<form class="form-sample">
 		<div class="row">
-			<div class="col-sm-12">
-				<div class="card">
-					<div class="card-body">
-	<h4 class="card-title"></h4>
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Job :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ jobname }}</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Service :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Téléphone :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ telephone }}</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Solde :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ solde }}</label>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	</div>
-	</div>
-	</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Adresse :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ adresse }}</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Ville :
+						</b>
+					</label>
+					<div class="col-sm-9">
+						<label class="col-sm-9 col-form-label" style="margin-bottom:0px">{{ city }},
+							{{ country }}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-	{#  <div class="card mt-4">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group row" style="margin-bottom: 0px;">
+					<label class="col-sm-3 col-form-label" style="margin-bottom:0px">
+						<b>Ancienneté :
+						</b>
+					</label>
+					<div class="col-sm-9"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div></div></div><div class="col-12 grid-margin stretch-card mt-4"><div class="card">
 <div class="card-body">
-	<a href="">Saisir une période de congé</a>
-	<a href="">Historique des congés</a><br>{% include 'layout/footer.html.twig' %}#}
-{% endblock %}
+	<h4 class="card-title">Liste des congés</h4>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>date deb</th>
+				<th>date fin</th>
+				<th>status</th>
+				<th>nbjoursDiff</th>
+				<th>Commentaire</th>
+				<th>Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{%for row in list%}
+				<tr>
+					<td>{{row.datedeb|date('d/m/Y') }}</td>
+					<td>{{row.datefin|date('d/m/Y') }}</td>
+					<td>{{row.status}}</td>
+					<td>{{row.nbjoursdiff}}</td>
+					<td>{{row.commentaire}}</td>
+
+					<td>
+						<form method="POST" action="{{path('app_detail_person',{'id':row.id})}}">
+
+							<button class="btn btn-sm btn-primary">Gérer</button>
+						</form>
+						{#<ahref="{{path('auteur_show',{'id':auteur.id})}}"class="btnbtn-info">show</a>#}
+						{#<ahref="{{path('auteur_edit',{'id':auteur.id})}}"class="btnbtn-success">edit</a>#}
+					</td>
+
+
+				</tr>
+
+				{%else%}
+				<div>
+					<td colspan="12">
+						<div style="text-align: center;">
+							Aucune données
+						</div>
+					</td>
+
+				</tr>
+				{%endfor%}</tbody>
+		</tbody>
+	</table>
+</table></div></div></div>{#  <div class="card mt-4">
+						<div class="card-body">
+							<a href="">Saisir une période de congé</a>
+							<a href="">Historique des congés</a><br>{% include 'layout/footer.html.twig' %}#}{% endblock %}
