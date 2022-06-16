@@ -4,7 +4,13 @@
 {% endblock %}
 
 {% block body %}
+	{% include 'layout/header.html.twig' %}
+	{% include 'layout/menu.html.twig' %}
 	<a href="{{ path('app_list_person') }}" class="btn btn-primary">Retour à la liste</a>
 
-	<h1>Ajouter un nouveau collaborateur</h1>
-	{{ form(form) }}{% endblock %}
+	<br><div style="text-align: center;"><h3>Ajouter un nouveau collaborateur</h3></div><br>
+	{{ form(form) }}
+
+	{% include 'layout/footer.html.twig' %}
+{% endblock %}
+

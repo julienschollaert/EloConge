@@ -24,7 +24,7 @@ class ListSalary
     #[ORM\Column(type: 'integer')]
     private $solde;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'string', length: 10, nullable: true)]
     private $telephone;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -47,6 +47,10 @@ class ListSalary
 
     #[ORM\ManyToMany(targetEntity: ListConge::class, mappedBy: 'idSalary')]
     private $listConges;
+
+    #[ORM\OneToOne(targetEntity: UserController::class, cascade: ['persist', 'remove'])]
+    private $idLogin;
+
 
     public function __construct()
     {
@@ -95,7 +99,7 @@ class ListSalary
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
@@ -205,4 +209,17 @@ class ListSalary
 
         return $this;
     }
+
+    public function getIdLogin(): ?UserController
+    {
+        return $this->idLogin;
+    }
+
+    public function setIdLogin(?UserController $idLogin): self
+    {
+        $this->idLogin = $idLogin;
+
+        return $this;
+    }
+
 }
