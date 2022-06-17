@@ -45,8 +45,7 @@ class ListSalary
     #[ORM\Column(type: 'string', length: 255)]
     private $jobname;
 
-    #[ORM\ManyToMany(targetEntity: ListConge::class, mappedBy: 'idSalary')]
-    private $listConges;
+
 
     #[ORM\OneToOne(targetEntity: UserController::class, cascade: ['persist', 'remove'])]
     private $idLogin;

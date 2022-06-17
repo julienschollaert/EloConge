@@ -12,7 +12,7 @@
 	<h4 class="card-title">Détail du collaborateur :
 		{{ prenom }}
 		{{ nom }}</h4>
-	<form class="form-sample">
+
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group row" style="margin-bottom: 0px;">
@@ -100,7 +100,33 @@
 				</div>
 			</div>
 		</div>
+
+
+
+	<div class="row">
+		<div class="col-md-6">
+
+			<div class="form-group row" style="margin-bottom: 0px; text-align: right">
+				<form method="POST"action="{{path('app_detail_person',{'id': id})}}">
+					<button class="btn btn-sm btn-primary">Modifier les informations</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group row" style="margin-bottom: 0px;">
+				<form method="POST"action="{{path('app_detail_person',{'id': id})}}">
+					<button class="btn btn-sm btn-danger">Supprimer le salarié</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	{#  <form method="POST"action="{{path('app_detail_person',{'id': id})}}">
+		<button class="btn btn-sm btn-primary">Modifier les informations</button>
 	</form>
+
+	<form method="POST"action="{{path('app_detail_person',{'id': id})}}">
+		<button class="btn btn-sm btn-danger">Supprimer le salarié</button>
+	</form>#}
 </div></div></div><div class="col-12 grid-margin stretch-card mt-4"><div class="card">
 <div class="card-body">
 	<h4 class="card-title">Liste des congés</h4>
@@ -126,7 +152,7 @@
 					<td>{{row.commentaire}}</td>
 
 					<td>
-						<form method="POST" action="{{path('app_detail_person',{'id':row.id})}}">
+						<form method="POST" action="{{path('app_conge_add',{'id':row.id})}}">
 
 							<button class="btn btn-sm btn-primary">Gérer</button>
 						</form>
